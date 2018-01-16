@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html class="js cssanimations" lang="en"><head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>wechatweb</title>
-  </head>
-  <body class="theme-white">
-        <div class="am-g tpl-g">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin index Examples</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <link href="assets/i/favicon.png" rel="icon" type="image/png">
+    <link href="assets/i/app-icon72x72@2x.png" rel="apple-touch-icon-precomposed">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI">
+    <script src="assets/js/echarts.min.js"></script>
+    <link href="assets/css/amazeui.min.css" rel="stylesheet">
+    <link href="assets/css/amazeui.datatables.min.css" rel="stylesheet">
+    <link href="assets/css/app.css" rel="stylesheet">
+    <script src="assets/js/jquery.min.js"></script>
+
+</head>
+
+<body class="theme-white" data-type="index">
+    <script src="assets/js/theme.js"></script>
+    <div class="am-g tpl-g">
         <!-- 头部 -->
         <header>
             <!-- logo -->
             <div class="am-fl tpl-header-logo">
-                <a href="javascript:;"><img alt="" src="../static/img/logo.png"></a>
+                <a href="javascript:;"><img alt="" src="assets/img/logo.png"></a>
             </div>
             <!-- 右侧内容 -->
             <div class="tpl-header-fluid">
@@ -35,6 +50,7 @@
                         <li class="am-text-sm tpl-header-navbar-welcome">
                             <a href="javascript:;">欢迎你, <span>Amaze UI</span> </a>
                         </li>
+
                         <!-- 新邮件 -->
                         <li class="am-dropdown tpl-dropdown" data-am-dropdown="">
                             <a class="am-dropdown-toggle tpl-dropdown-toggle" href="javascript:;" data-am-dropdown-toggle="">
@@ -46,7 +62,7 @@
                                 <li class="tpl-dropdown-menu-messages">
                                     <a class="tpl-dropdown-menu-messages-item am-cf" href="javascript:;">
                                         <div class="menu-messages-ico">
-                                            <img alt="" src="../static/img/user04.png">
+                                            <img alt="" src="assets/img/user04.png">
                                         </div>
                                         <div class="menu-messages-time">
                                             3小时前
@@ -61,10 +77,11 @@
                                         </div>
                                     </a>
                                 </li>
+
                                 <li class="tpl-dropdown-menu-messages">
                                     <a class="tpl-dropdown-menu-messages-item am-cf" href="javascript:;">
                                         <div class="menu-messages-ico">
-                                            <img alt="" src="../static/img/user02.png">
+                                            <img alt="" src="assets/img/user02.png">
                                         </div>
                                         <div class="menu-messages-time">
                                             5天前
@@ -86,12 +103,14 @@
                                 </li>
                             </ul>
                         </li>
+
                         <!-- 新提示 -->
                         <li class="am-dropdown" data-am-dropdown="">
                             <a class="am-dropdown-toggle" href="javascript:;" data-am-dropdown-toggle="">
                                 <i class="am-icon-bell"></i>
                                 <span class="am-badge am-badge-warning am-round item-feed-badge">5</span>
                             </a>
+
                             <!-- 弹出列表 -->
                             <ul class="am-dropdown-content tpl-dropdown-content">
                                 <li class="tpl-dropdown-menu-notifications">
@@ -127,6 +146,8 @@
                                         </div>
                                     </a>
                                 </li>
+
+
                                 <li class="tpl-dropdown-menu-notifications">
                                     <a class="tpl-dropdown-menu-notifications-item am-cf" href="javascript:;">
                                         <i class="am-icon-bell"></i> 进入列表…
@@ -134,6 +155,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         <!-- 退出 -->
                         <li class="am-text-sm">
                             <a href="javascript:;">
@@ -143,6 +165,7 @@
                     </ul>
                 </div>
             </div>
+
         </header>
         <!-- 风格切换 -->
         <div class="tpl-skiner">
@@ -164,7 +187,7 @@
             <div class="tpl-sidebar-user-panel">
                 <div class="tpl-user-panel-slide-toggleable">
                     <div class="tpl-user-panel-profile-picture">
-                        <img alt="" src="../static/img/user04.png">
+                        <img alt="" src="assets/img/user04.png">
                     </div>
                     <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
@@ -173,6 +196,7 @@
                     <a class="tpl-user-panel-action-link" href="javascript:;"> <span class="am-icon-pencil"></span> 账号设置</a>
                 </div>
             </div>
+
             <!-- 菜单 -->
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
@@ -203,6 +227,7 @@
 
                     </a>
                 </li>
+
                 <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>
                 <li class="sidebar-nav-link">
                     <a class="sidebar-nav-sub-title" href="javascript:;">
@@ -215,6 +240,7 @@
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
                             </a>
                         </li>
+
                         <li class="sidebar-nav-link">
                             <a href="table-list-img.html">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
@@ -238,14 +264,21 @@
                         <i class="am-icon-tv sidebar-nav-link-logo"></i> 404错误
                     </a>
                 </li>
+
             </ul>
         </div>
+
+
         <!-- 内容区域 -->
         <div class="tpl-content-wrapper">
-              <div id="app"></div>
-              <!-- built files will be auto injected -->
+            
         </div>
     </div>
+    
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/amazeui.datatables.min.js"></script>
+    <script src="assets/js/dataTables.responsive.min.js"></script>
 
-  </body>
-</html>
+
+
+</body></html>
