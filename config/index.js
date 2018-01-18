@@ -3,13 +3,14 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
+const proxyConfig = require('./proxyConfig')
 module.exports = {
   dev: {
 
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    //proxyTable: proxyConfig.proxyTable,
     proxyTable: {},
 
     // Various Dev Server settings
@@ -27,7 +28,6 @@ module.exports = {
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
-
     /**
      * Source Maps
      */
