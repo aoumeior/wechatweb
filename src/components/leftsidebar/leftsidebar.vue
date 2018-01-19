@@ -22,19 +22,20 @@
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="tables.html">
-                        <i class="am-icon-table sidebar-nav-link-logo"></i> 表格
-                    </a>
+                    <router-link to="/displaypic">
+                        <a>
+                            <i class="am-icon-table sidebar-nav-link-logo"></i> 图片展示
+                        </a>
+                    </router-link>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="calendar.html">
+                    <a>
                         <i class="am-icon-calendar sidebar-nav-link-logo"></i> 日历
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="form.html">
+                    <a>
                         <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 表单
-
                     </a>
                 </li>
                 <li class="sidebar-nav-link">

@@ -4,11 +4,22 @@
   </div>
 </template>
 <script>
+import Vue from 'vue'
 import uploadpic from './components/uploadpic/UploadPic.vue'
+import Req from 'axios'
+Vue.use(Req)
+
 export default {
   name: 'App',
   components: {
     uploadpic: uploadpic
+  },
+  created () {
+    let LocalAPI = 'static/api/displaypic.json'
+    Req.get(LocalAPI)
+      .then((res) => {
+        console.log(res)
+      })
   }
 }
 
