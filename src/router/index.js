@@ -1,16 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import DisplayPic from '@/components/displaypic/DisplayPic'
-
+import UploadPic from '@/components/uploadpic/UploadPic.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'uploadpic',
+      component: UploadPic
     },
     {
       path: '/displaypic',

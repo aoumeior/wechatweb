@@ -1,18 +1,25 @@
 <template>
-  <div id="app">
-    <uploadpic></uploadpic>
+  <div>
+    <leftsidebar></leftsidebar>
+    <div id="app" class="tpl-content-wrapper">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <script>
 import Vue from 'vue'
 import uploadpic from './components/uploadpic/UploadPic.vue'
+import displaypic from './components/displaypic/DisplayPic.vue'
+import  leftsidebar from './components/leftsidebar/LeftSidebar.vue'
 import Req from 'axios'
 Vue.use(Req)
 
 export default {
   name: 'App',
   components: {
-    uploadpic: uploadpic
+  leftsidebar: leftsidebar,
+    uploadpic: uploadpic,
+    displaypic: displaypic
   },
   created () {
     let LocalAPI = 'static/api/displaypic.json'

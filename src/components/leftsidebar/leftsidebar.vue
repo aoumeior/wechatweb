@@ -4,7 +4,7 @@
             <div class="tpl-sidebar-user-panel">
                 <div class="tpl-user-panel-slide-toggleable">
                     <div class="tpl-user-panel-profile-picture">
-                        <img alt="" src="../static/img/user04.png">
+                        <img alt="" src="/static/img/user04.png">
                     </div>
                     <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
@@ -17,26 +17,14 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
                 <li class="sidebar-nav-link">
-                    <a class="active" href="index.html">
-                        <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
-                    </a>
-                </li>
-                <li class="sidebar-nav-link">
-                    <router-link to="/displaypic">
-                        <a>
-                            <i class="am-icon-table sidebar-nav-link-logo"></i> 图片展示
-                        </a>
+                    <router-link tag="a" class="active" to="/">
+                        <i class="am-icon-table sidebar-nav-link-logo"></i> 图片上传
                     </router-link>
                 </li>
-                <li class="sidebar-nav-link">
-                    <a>
-                        <i class="am-icon-calendar sidebar-nav-link-logo"></i> 日历
-                    </a>
-                </li>
-                <li class="sidebar-nav-link">
-                    <a>
-                        <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 表单
-                    </a>
+                <li class="sidebar-nav-link">  
+                    <router-link tag="a" to="/displaypic">
+                    <i class="am-icon-table sidebar-nav-link-logo"></i> 图片展示
+                    </router-link>
                 </li>
                 <li class="sidebar-nav-link">
                     <a href="chart.html">
@@ -85,9 +73,9 @@
 
 <style scoped>
 
-@import '../static/css/admin.css';
-@import '../static/css/app.css';
-@import '../static/css/amazeui.min.css'; 
+@import '../../../static/css/admin.css';
+@import '../../../static/css/app.css';
+@import '../../../static/css/amazeui.min.css'; 
 
 </style>
 
