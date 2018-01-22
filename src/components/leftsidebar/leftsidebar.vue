@@ -1,5 +1,5 @@
 <template>
-  <div class="left-sidebar">
+  <div class="left-sidebar" :class="leftsiderswitch">
             <!-- 用户信息 -->
             <div class="tpl-sidebar-user-panel">
                 <div class="tpl-user-panel-slide-toggleable">
@@ -7,9 +7,8 @@
                         <img alt="" src="/static/img/user04.png">
                     </div>
                     <span class="user-panel-logged-in-text">
-              <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
-              禁言小张
-          </span>
+                        <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>禁言小张
+                    </span>
                     <a class="tpl-user-panel-action-link" href="javascript:;"> <span class="am-icon-pencil"></span> 账号设置</a>
                 </div>
             </div>
@@ -72,16 +71,26 @@
 </template>
 
 <style scoped>
-
 @import '../../../static/css/admin.css';
 @import '../../../static/css/app.css';
 @import '../../../static/css/amazeui.min.css'; 
-
 </style>
 
 <script>
   export default{
-    
+    data: function () {
+        return { 
+            leftsiderswitch: ""
+        }
+    },
+    created() {
+        this.$root.Bus.$on('hide', (msg) => {
+            if(msg){
+               this.leftsiderswitch = 'active'
+            }else{
+                this.leftsiderswitch = '' 
+            }
+        })
+    }
   }
 </script>
-

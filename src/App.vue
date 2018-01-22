@@ -1,13 +1,15 @@
 <template>
   <div>
+    <top></top>
     <leftsidebar></leftsidebar>
-    <div id="app" class="tpl-content-wrapper">
+    <div id="app" class="tpl-content-wrapper" :class="leftsiderswitch">
       <router-view></router-view>
     </div>
   </div>
 </template>
 <script>
 import Vue from 'vue'
+import header from './components/header/Header.vue'
 import uploadpic from './components/uploadpic/UploadPic.vue'
 import displaypic from './components/displaypic/DisplayPic.vue'
 import  leftsidebar from './components/leftsidebar/LeftSidebar.vue'
@@ -18,15 +20,27 @@ export default {
   name: 'App',
   components: {
   leftsidebar: leftsidebar,
-    uploadpic: uploadpic,
-    displaypic: displaypic
+  uploadpic: uploadpic,
+  displaypic: displaypic,
+  top: header
   },
+  props: {
+    leftsiderswitch: ''
+  }
+  ,
   created () {
     let LocalAPI = 'static/api/displaypic.json'
     Req.get(LocalAPI)
       .then((res) => {
-        console.log(res)
+        //console.log(res)
       })
+    this.$root.Bus.$on('expand', (msg) => {
+      if(msg){
+        this.leftsiderswitch = 'active'
+      }else{
+        this.leftsiderswitch = '' 
+      }
+    })
   }
 }
 
