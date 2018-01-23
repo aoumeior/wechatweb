@@ -9,39 +9,47 @@
 </template>
 <script>
 import Vue from 'vue'
+
 import header from './components/header/Header.vue'
 import uploadpic from './components/uploadpic/UploadPic.vue'
 import displaypic from './components/displaypic/DisplayPic.vue'
-import  leftsidebar from './components/leftsidebar/LeftSidebar.vue'
+import leftsidebar from './components/leftsidebar/LeftSidebar.vue'
+
 import Req from 'axios'
+
+import processingTime from '../static/function/processingTime.js'
+
 Vue.use(Req)
 
 export default {
   name: 'App',
   components: {
-  leftsidebar: leftsidebar,
-  uploadpic: uploadpic,
-  displaypic: displaypic,
-  top: header
+    leftsidebar: leftsidebar,
+    uploadpic: uploadpic,
+    displaypic: displaypic,
+    top: header
   },
   props: {
     leftsiderswitch: ''
-  }
-  ,
+  },
   created () {
+    //用于获取图片数据
     let LocalAPI = 'static/api/displaypic.json'
     Req.get(LocalAPI)
       .then((res) => {
-        //console.log(res)
       })
+    //组件间通信
     this.$root.Bus.$on('expand', (msg) => {
-      if(msg){
+      if (msg) {
         this.leftsiderswitch = 'active'
-      }else{
-        this.leftsiderswitch = '' 
+      }
+      else {
+        this.leftsiderswitch = ''
       }
     })
-  }
+  },
+  //example :混入一些处理数据与页面框架无关的函数 
+  mixins: [processingTime]
 }
 
 </script>
@@ -58,5 +66,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 </style>

@@ -20,16 +20,15 @@
                         <i class="am-icon-table sidebar-nav-link-logo"></i> 图片上传
                     </router-link>
                 </li>
-                <li class="sidebar-nav-link">  
+                <li class="sidebar-nav-link">
                     <router-link tag="a" to="/displaypic">
                     <i class="am-icon-table sidebar-nav-link-logo"></i> 图片展示
                     </router-link>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="chart.html">
-                        <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 图表
-
-                    </a>
+                    <router-link tag="a" to="/markdown">
+                    <i class="am-icon-table sidebar-nav-link-logo"></i> 文章编写
+                    </router-link>
                 </li>
                 <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>
                 <li class="sidebar-nav-link">
@@ -73,24 +72,23 @@
 <style scoped>
 @import '../../../static/css/admin.css';
 @import '../../../static/css/app.css';
-@import '../../../static/css/amazeui.min.css'; 
+@import '../../../static/css/amazeui.min.css';
 </style>
 
 <script>
-  export default{
-    data: function () {
-        return { 
-            leftsiderswitch: ""
-        }
-    },
-    created() {
-        this.$root.Bus.$on('hide', (msg) => {
-            if(msg){
-               this.leftsiderswitch = 'active'
-            }else{
-                this.leftsiderswitch = '' 
-            }
-        })
+export default {
+  data: function () {
+    return {
+      leftsiderswitch: ''
     }
+  },
+  created () {
+    this.$root.Bus.$on('hide', (msg) => {
+      if (msg) {
+        this.leftsiderswitch = 'active'
+      }
+      else { this.leftsiderswitch = '' }
+    })
   }
+}
 </script>

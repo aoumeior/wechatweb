@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import DisplayPic from '@/components/displaypic/DisplayPic'
 import UploadPic from '@/components/uploadpic/UploadPic.vue'
+import Markdown from '@/components/markdown/Markdown.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -15,6 +17,11 @@ export default new Router({
       path: '/displaypic',
       name: 'DisplayPic',
       component: DisplayPic
+    },
+    {
+      path: '/markdown',
+      name: 'markdown',
+      component: Markdown
     }
   ]
 })

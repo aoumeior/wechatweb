@@ -135,7 +135,7 @@
       </div>
     </header>
 
-    <div class="tpl-skiner">
+    <div class="tpl-skiner" @click ="display()" :class="skinsshow">
       <div class="tpl-skiner-toggle am-icon-cog">
       </div>
       <div class="tpl-skiner-content">
@@ -154,8 +154,10 @@
 <script>
 export default{
   data: function () {
-    return { 
-      leftsiderswitch: ""
+    return {
+      leftsiderswitch: true,
+      skinswitch: true,
+      skinsshow: ''
     }
   },
   methods: {
@@ -166,11 +168,18 @@ export default{
     },
     //改变样式
     stylechange: function () {
-      
+    },
+    display: function () {
+      if (this.skinswitch) {
+        this.skinsshow = 'active'
+      }
+      else {
+        this.skinsshow = ''
+      }
+      this.skinswitch = !this.skinswitch
     }
   }
-} 
+}
 </script>
 <style>
-
 </style>
