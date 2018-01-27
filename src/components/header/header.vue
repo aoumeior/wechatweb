@@ -32,7 +32,7 @@
                 <span class="am-badge am-badge-success am-round item-feed-badge">4</span>
               </a>
               <!-- 弹出列表 -->
-              <ul class="am-dropdown-content tpl-dropdown-content">
+              <!-- <ul class="·am-dropdown-content tpl-dropdown-content">
                 <li class="tpl-dropdown-menu-messages">
                   <a class="tpl-dropdown-menu-messages-item am-cf" href="javascript:;">
                     <div class="menu-messages-ico">
@@ -75,7 +75,7 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> -->
             <!-- 新提示 -->
             <li class="am-dropdown" data-am-dropdown="">
               <a class="am-dropdown-toggle" href="javascript:;" data-am-dropdown-toggle="">
@@ -166,18 +166,19 @@ export default{
       this.$root.Bus.$emit('expand', this.leftsiderswitch)
       this.leftsiderswitch = !this.leftsiderswitch
     },
-    //改变样式
+    // 改变样式
     stylechange: function () {
     },
     display: function () {
       if (this.skinswitch) {
         this.skinsshow = 'active'
-      }
-      else {
+      } else {
         this.skinsshow = ''
       }
       this.skinswitch = !this.skinswitch
     }
+    // <div v-bind:id="rawId | formatId"></div>
+    // 過濾器用于格式化，結合混合屬於高級抽象
   }
 }
 </script>

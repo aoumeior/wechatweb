@@ -86,9 +86,14 @@ export default {
     this.$root.Bus.$on('hide', (msg) => {
       if (msg) {
         this.leftsiderswitch = 'active'
+      } else {
+        this.leftsiderswitch = ''
       }
-      else { this.leftsiderswitch = '' }
     })
+    // test
+    console.log('当前页面组件通信是和页面其他是分离的，当然这种分离是一种伪分离，因为组件间通信时依赖于当前$root进行注册，最重要的是通信方式和页面紧紧的粘在一起')
+    console.log('但实际上我通过两个vue实例都没曾找到，所监听的事件')
+    console.log(this.$root.Bus.$listeners)
   }
 }
 </script>

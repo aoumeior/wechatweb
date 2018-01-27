@@ -7,8 +7,8 @@
 
 <script>
 import Vue from 'vue'
-import _ from 'lodash';
-import marked from 'marked';
+import _ from 'lodash'
+import marked from 'marked'
 
 import Req from 'axios'
 
@@ -22,6 +22,10 @@ export default{
   created () {
     let LocalAPI = '../../static/api/mk.json'
     Req.get(LocalAPI).then((mes) => {
+      // this.$root
+      // 获取所谓的根实例，根据我的分析，我这种情况无论怎么写最后都是要获取到根事例
+      // 在组件内写this.$root 获取实例，下个判断就会false
+      console.log(this.$root === this)
       this.input = mes.data
     })
   },

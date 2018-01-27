@@ -41,7 +41,6 @@ export default {
   },
   watch: {
     url: function () {
-      console.log(1)
       this.disurl = true
     }
   }

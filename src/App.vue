@@ -1,7 +1,7 @@
 <template>
   <div>
     <top></top>
-    <leftsidebar></leftsidebar>
+    <leftsidebar ref="left"></leftsidebar>
     <div id="app" class="tpl-content-wrapper" :class="leftsiderswitch">
       <router-view></router-view>
     </div>
@@ -19,7 +19,7 @@ import Req from 'axios'
 
 import processingTime from '../static/function/processingTime.js'
 
-Vue.use(Req)
+Vue.prototype.$ajax = Req
 
 export default {
   name: 'App',
@@ -33,22 +33,24 @@ export default {
     leftsiderswitch: ''
   },
   created () {
-    //用于获取图片数据
+    // 用于获取图片数据
     let LocalAPI = 'static/api/displaypic.json'
     Req.get(LocalAPI)
       .then((res) => {
       })
-    //组件间通信
+    // 组件间通信
     this.$root.Bus.$on('expand', (msg) => {
       if (msg) {
         this.leftsiderswitch = 'active'
-      }
-      else {
+      } else {
         this.leftsiderswitch = ''
       }
     })
+    // test
+    console.log('该页面有一个组件被注册到当前对象，this.$refs就仅仅会显示一个已注册的组件')
+    console.log(this.$refs)
   },
-  //example :混入一些处理数据与页面框架无关的函数 
+  // example :混入一些处理数据与页面框架无关的函数
   mixins: [processingTime]
 }
 
