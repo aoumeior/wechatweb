@@ -16,6 +16,7 @@
 import Vue from 'vue'
 import Req from 'axios'
 Vue.use(Req)
+
 export default {
   name: 'UploadPic',
   data: function () {
@@ -24,13 +25,17 @@ export default {
       disurl: false
     }
   },
+  created () {
+    // const router = this.$router
+    // console.log(router)
+    // router.replace({path: '/login'})
+  },
   methods: {
     uploadpic: function (e) {
       let fileobject = e.target.files[0]
       let url = 'https://www.unitools.site/ytcc/uploadimg'
       let formdata = new FormData()
       formdata.append('file', fileobject)
-      console.log(fileobject)
       let self = this
       Req({
         method: 'post',

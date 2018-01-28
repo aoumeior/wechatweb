@@ -16,7 +16,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
                 <li class="sidebar-nav-link">
-                    <router-link tag="a" class="active" to="/">
+                    <router-link tag="a" class="active" to="/uploadpic">
                         <i class="am-icon-table sidebar-nav-link-logo"></i> 图片上传
                     </router-link>
                 </li>
