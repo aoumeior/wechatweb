@@ -1,8 +1,7 @@
 <template>
   <div>
     <top></top>
-    <leftsidebar ref="left"></leftsidebar>
-    <div id="app" class="tpl-content-wrapper" :class="leftsiderswitch">
+    <div id="app" class="tpl-content-wrapper  active" :class="leftsiderswitch">
       <router-view></router-view>
     </div>
   </div>
@@ -10,10 +9,10 @@
 <script>
 import Vue from 'vue'
 
-import header from './components/header/Header.vue'
+import header from './components/header/header.vue'
 import uploadpic from './components/uploadpic/UploadPic.vue'
 import displaypic from './components/displaypic/DisplayPic.vue'
-import leftsidebar from './components/leftsidebar/LeftSidebar.vue'
+import leftsidebar from './components/leftsidebar/leftsidebar.vue'
 
 import Req from 'axios'
 
@@ -39,13 +38,14 @@ export default {
       .then((res) => {
       })
     // 组件间通信
-    this.$root.Bus.$on('expand', (msg) => {
-      if (msg) {
-        this.leftsiderswitch = 'active'
-      } else {
-        this.leftsiderswitch = ''
-      }
-    })
+    // this.$root.Bus.$on('expand', (msg) => {
+    //   if (msg) {
+    //     this.leftsiderswitch = 'active'
+    //   } else {
+    //     this.leftsiderswitch = ''
+    //   }
+    // })
+
     // test
     console.log('该页面有一个组件被注册到当前对象，this.$refs就仅仅会显示一个已注册的组件')
     console.log(this.$refs)

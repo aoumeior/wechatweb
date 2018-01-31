@@ -8,15 +8,38 @@
       <!-- 右侧内容 -->
       <div class="tpl-header-fluid">
         <!-- 侧边切换 -->
-        <div class="am-fl tpl-header-switch-button am-icon-list" @click="leftshow()">
+        <div class="am-fl tpl-header-switch-button am-icon-list active" @click="leftshow()">
           <span></span>
         </div>
         <!-- 搜索 -->
-        <div class="am-fl tpl-header-search">
-          <form class="tpl-header-search-form" action="javascript:;">
+
+        <div class="am-fl tpl-header-navbar">
+           <ul class="sidebar-nav">
+                <li class="">
+                    <router-link tag="a" class="active" to="/uploadpic">
+                        <i class="am-icon-table sidebar-nav-link-logo"></i> 图片上传
+                    </router-link>
+                </li>
+                <li class="">
+                    <router-link tag="a" to="/displaypic">
+                    <i class="am-icon-table sidebar-nav-link-logo"></i> 图片展示
+                    </router-link>
+                </li>
+                <li class="">
+                    <router-link tag="a" to="/markdown">
+                    <i class="am-icon-table sidebar-nav-link-logo"></i> 文章编写
+                    </router-link>
+                </li>
+                <li class="">
+                  <router-link tag="a" to="#">
+                  <i class="am-icon-table sidebar-nav-link-logo"></i> 文章列表
+                  </router-link>
+                </li>
+            </ul>
+<!--           <form class="tpl-header-search-form" action="javascript:;">
             <button class="tpl-header-search-btn am-icon-search"></button>
             <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
-          </form>
+          </form> -->
         </div>
         <!-- 其它功能-->
         <div class="am-fr tpl-header-navbar">
@@ -31,51 +54,6 @@
                 <i class="am-icon-envelope"></i>
                 <span class="am-badge am-badge-success am-round item-feed-badge">4</span>
               </a>
-              <!-- 弹出列表 -->
-              <!-- <ul class="·am-dropdown-content tpl-dropdown-content">
-                <li class="tpl-dropdown-menu-messages">
-                  <a class="tpl-dropdown-menu-messages-item am-cf" href="javascript:;">
-                    <div class="menu-messages-ico">
-                      <img alt="" src="/static/img/user04.png">
-                    </div>
-                    <div class="menu-messages-time">
-                      3小时前
-                    </div>
-                    <div class="menu-messages-content">
-                      <div class="menu-messages-content-title">
-                        <i class="am-icon-circle-o am-text-success"></i>
-                        <span>夕风色</span>
-                      </div>
-                      <div class="am-text-truncate"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </div>
-                      <div class="menu-messages-content-time">2016-09-21 下午 16:40</div>
-                    </div>
-                  </a>
-                </li>
-                <li class="tpl-dropdown-menu-messages">
-                  <a class="tpl-dropdown-menu-messages-item am-cf" href="javascript:;">
-                    <div class="menu-messages-ico">
-                      <img alt="" src="/static/img/user02.png">
-                    </div>
-                    <div class="menu-messages-time">
-                      5天前
-                    </div>
-                    <div class="menu-messages-content">
-                      <div class="menu-messages-content-title">
-                        <i class="am-icon-circle-o am-text-warning"></i>
-                        <span>禁言小张</span>
-                      </div>
-                      <div class="am-text-truncate"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </div>
-                      <div class="menu-messages-content-time">2016-09-16 上午 09:23</div>
-                    </div>
-                  </a>
-                </li>
-                <li class="tpl-dropdown-menu-messages">
-                  <a class="tpl-dropdown-menu-messages-item am-cf" href="javascript:;">
-                    <i class="am-icon-circle-o"></i> 进入列表…
-                  </a>
-                </li>
-              </ul>
-            </li> -->
             <!-- 新提示 -->
             <li class="am-dropdown" data-am-dropdown="">
               <a class="am-dropdown-toggle" href="javascript:;" data-am-dropdown-toggle="">
@@ -155,8 +133,8 @@
 export default{
   data: function () {
     return {
-      leftsiderswitch: true,
-      skinswitch: true,
+      leftsiderswitch: false,
+      skinswitch: false,
       skinsshow: ''
     }
   },
@@ -183,4 +161,13 @@ export default{
 }
 </script>
 <style>
+
+ul > li {
+  float: left;
+
+}
+
+li > a {
+  line-height: 55px;
+}
 </style>
