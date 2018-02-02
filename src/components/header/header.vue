@@ -31,7 +31,7 @@
                     </router-link>
                 </li>
                 <li class="">
-                  <router-link tag="a" to="#">
+                  <router-link tag="a" to="/artlists">
                   <i class="am-icon-table sidebar-nav-link-logo"></i> 文章列表
                   </router-link>
                 </li>
@@ -162,12 +162,12 @@ export default{
 </script>
 <style>
 
-ul > li {
+tpl-header-navbar ul > li {
   float: left;
 
 }
 
-li > a {
+tpl-header-navbar li > a {
   line-height: 55px;
 }
 </style>

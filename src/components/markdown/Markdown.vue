@@ -40,8 +40,9 @@ export default {
       // 获取所谓的根实例，根据我的分析，我这种情况无论怎么写最后都是要获取到根事例
       // 在组件内写this.$root 获取实例，下个判断就会false
       // console.log(this.$root === this)
-      console.log(mes.data)
+      // console.log(mes.data)
       self.mdValue = mes.data
+      console.log(self.mdValue)
     })
   },
   components: {
@@ -50,6 +51,7 @@ export default {
   methods: {
     childEventHandler: function (res) {
       // res会传回一个data,包含属性mdValue和htmlValue，具体含义请自行翻译
+      console.log(res)
       this.msg = res
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <top></top>
-    <div id="app" class="tpl-content-wrapper  active" :class="leftsiderswitch">
+    <div id="app" class="tpl-content" :class="leftsiderswitch">
       <router-view></router-view>
     </div>
   </div>
@@ -64,7 +64,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
