@@ -5,14 +5,8 @@
       <div class="am-fl tpl-header-logo">
         <a href="javascript:;"><img alt="" src="/static/img/logo.png"></a>
       </div>
-      <!-- 右侧内容 -->
       <div class="tpl-header-fluid">
-        <!-- 侧边切换 -->
-        <div class="am-fl tpl-header-switch-button am-icon-list active" @click="leftshow()">
-          <span></span>
-        </div>
         <!-- 搜索 -->
-
         <div class="am-fl tpl-header-navbar">
            <ul class="sidebar-nav">
                 <li class="">

@@ -10,7 +10,9 @@
   </div>
 </template>
 <style>
-
+#UploadPic {
+  text-align: center;
+}
 </style>
 <script>
 import Vue from 'vue'

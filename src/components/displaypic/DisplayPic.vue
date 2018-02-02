@@ -1,11 +1,12 @@
 <template>
-  <div id="app">
     <div>
-      <!-- 标题 -->
-      <h1>{{title}}</h1>
-      <!-- 图片总数 -->
-      <h2>共有图片：{{ pic.total }} 张</h2>
-      <br/>
+      <div class="title">
+        <!-- 标题 -->
+        <h1>{{title}}</h1>
+        <!-- 图片总数 -->
+        <h2>共有图片：{{ pic.total }} 张</h2>
+        <br/>
+        </div>
       <!-- 图片展示 -->
       <div>
         <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{  }">
@@ -20,7 +21,6 @@
       </div>
       <!-- 图片展示结束 -->
     </div>
-  </div>
 </template>
 <script>
 export default {
@@ -94,9 +94,12 @@ export default {
         }
       }
     }
-  } //
+  }
 }
 
 </script>
-<style>
+<style scoped>
+.title {
+  text-align: center;
+}
 </style>
