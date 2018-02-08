@@ -30,10 +30,6 @@
                   </router-link>
                 </li>
             </ul>
-<!--           <form class="tpl-header-search-form" action="javascript:;">
-            <button class="tpl-header-search-btn am-icon-search"></button>
-            <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
-          </form> -->
         </div>
         <!-- 其它功能-->
         <div class="am-fr tpl-header-navbar">
@@ -98,7 +94,7 @@
             </li>
             <!-- 退出 -->
             <li class="am-text-sm">
-              <a href="javascript:;">
+              <a href="javascript:;" v-on:click="logout">
                 <span class="am-icon-sign-out"></span> 退出
               </a>
             </li>
@@ -124,6 +120,7 @@
 </template>
 
 <script>
+import Req from 'axios'
 export default{
   data: function () {
     return {
@@ -148,6 +145,19 @@ export default{
         this.skinsshow = ''
       }
       this.skinswitch = !this.skinswitch
+    },
+    logout: function (e) {
+      const API = '/ytcc/app/logout'
+      var self = this
+      Req.get(API)
+        .then(function (response) {
+          if (response.data.status === 'true') {
+            self.$router.push({ name: 'login' })
+            location.reload()
+            return
+          }
+          alert('password or account error')
+      })
     }
     // <div v-bind:id="rawId | formatId"></div>
     // 過濾器用于格式化，結合混合屬於高級抽象

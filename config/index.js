@@ -3,15 +3,23 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-const proxyConfig = require('./proxyConfig')
+// const proxyConfig = require('./proxyConfig')
 module.exports = {
   dev: {
 
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    //proxyTable: proxyConfig.proxyTable,
-    proxyTable: {},
+    //  proxyTable: proxyConfig.proxyTable,
+    proxyTable: { 
+        '/ytcc': {
+            target: 'http://www.unitools.site',
+            changeOrigin: true,
+            pathRewrite: {
+                '^/ytcc': ""
+            }
+        }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

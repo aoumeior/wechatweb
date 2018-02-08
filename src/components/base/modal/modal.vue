@@ -1,29 +1,29 @@
 <template>
-	  <transition name="modal">
+	 <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
         	<!-- head -->
-          <div class="modal-header">
+          <header class="modal-header">
             <slot name="header">
               default header
             </slot>
-          </div>
+          </header>
           <!-- body -->
-          <div class="modal-body">
+          <main class="modal-body">
             <slot name="body">
               default body
             </slot>
-          </div>
+          </main>
           <!-- footer -->
-          <div class="modal-footer">
+          <footer class="modal-footer">
             <slot name="footer">
               default footer
               <button class="modal-default-button">
                 OK
               </button>
             </slot>
-          </div>
+          </footer>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  width: 700px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
@@ -81,6 +81,9 @@ export default {
   float: right;
 }
 
+.modal-footer {
+  overflow: hidden;
+}
 /*
  * The following styles are auto-applied to elements with
  * transition="modal" when their visibility is toggled

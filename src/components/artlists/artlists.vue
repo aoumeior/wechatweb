@@ -144,6 +144,7 @@ export default {
     font-size: 1.3rem;
     top: 0;
     padding: 1rem 0;
+    overflow: hidden;
 }
 
 </style>

@@ -1,120 +1,146 @@
 <template>
-  <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
-            <slot name="header">
-            </slot>
+<div>
+    <!-- login page -->
+    <model class="login">
+       <div slot="header">
+        <span>登陆</span>
+        <div style="float: right">
+          <span class="am-btn am-btn-primary am-btn-sm" v-on:click="switchregister">注册</span>
+        </div>
+        <hr>
+      </div>
+      <div slot="body" class="login">
+        <form class="am-form am-form-horizontal">
+          <div class="am-form-group">
+            <label for="doc-ipt-3" class="am-u-sm-2 am-form-label">名字</label>
+            <div class="am-u-sm-10">
+              <input type="text" id="doc-ipt-3" placeholder="输入你的名字" v-model="login.username">
+            </div>
           </div>
-          <div class="modal-body">
-            <form class="am-form">
-              <fieldset>
-                <legend>登陆</legend>
-                <div class="am-form-group">
-                  <label for="doc-ipt-email-1">邮件</label>
-                  <input type="email" class="" id="doc-ipt-email-1" placeholder="输入电子邮件">
-                </div>
-                <div class="am-form-group">
-                  <label for="doc-ipt-pwd-1">密码</label>
-                  <input type="password" class="" id="doc-ipt-pwd-1" placeholder="设置个密码吧">
-                </div>
-                <p>
-                  <button type="submit" class="am-btn am-btn-default">提交</button>
-                </p>
-              </fieldset>
-            </form>
+
+          <div class="am-form-group">
+            <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">密码</label>
+            <div class="am-u-sm-10">
+              <input type="password" id="doc-ipt-pwd-2" placeholder="设置一个密码" v-model="login.password">
+            </div>
           </div>
-          <div class="modal-footer">
-            <slot name="footer">
-            </slot>
+
+          <div class="am-form-group">
+            <div class="am-u-sm-offset-2 am-u-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> 记住十万年
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div slot="footer">
+        <div class="am-form-group">
+          <div class="am-u-sm-10 am-u-sm-offset-2">
+            <button type="submit" class="am-btn am-btn-default" v-on:click="submitlogin">提交登入</button>
           </div>
         </div>
       </div>
+  </model>
+  <!-- register page -->
+  <model class="register">
+     <div slot="header">
+      <span class="am-btn am-btn-primary am-btn-sm" v-on:click="switchlogin" >登陆</span>
+      <div style="float: right">
+        <span>注册</span>
+      </div>
+      <hr>
     </div>
-  </transition>
+    <div slot="body" class="am-g">
+      <div class="am-u-md-8 am-u-sm-centered">
+        <form class="am-form">
+          <fieldset class="am-form-set">
+            <input type="text" placeholder="取个名字" v-model="login.username">
+            <input type="password" placeholder="设个密码" v-model="login.password">
+          </fieldset>
+          <button type="submit" class="am-btn am-btn-primary am-btn-block" v-on:click="submitreqister">注册个账号</button>
+        </form>
+      </div>
+    </div>
+    <div slot="footer"></div>
+  </model>
+</div>
 </template>
-<script>
 
+<script>
+import model from '@/components/base/modal/modal.vue'
+import md5 from 'js-md5'
+import Req from 'axios'
 export default {
   data: function () {
     return {
-      showModal: true
+      login: {
+        username: '',
+        password: ''
+      }
     }
   },
-  created () {},
+  components: {
+    model
+  },
   methods: {
-    login: function () {
-
+    // modal switch
+    switchregister: function (e) {
+      let login = document.getElementsByClassName('login')
+      login[0].style.cssText = 'display:none;'
+      let register = document.getElementsByClassName('register')
+      register[0].style.cssText = 'display: table;'
+    },
+    // modal switch
+    switchlogin: function (e) {
+      let login = document.getElementsByClassName('login')
+      login[0].style.cssText = 'display:table;'
+      let register = document.getElementsByClassName('register')
+      register[0].style.cssText = 'display: none;'
+    },
+    // login requst
+    submitlogin: function (e) {
+      const API = '/ytcc/app/login'
+      let pv = this.login
+      pv.password = md5(pv.password)
+      var self = this
+      Req.post(API, pv)
+        .then(function (response) {
+          if (response.data.status === 'true') {
+            self.$router.push({ name: 'uploadpic' })
+            location.reload()
+            return
+          }
+          alert('password or account error')
+        })
+    },
+    submitreqister: function (e) {
+      const API = '/ytcc/app/register'
+      let pv = this.login
+      pv.password = pv.password
+      var self = this
+      Req.post(API, pv)
+        .then(function (response) {
+          if (response.data.status === 'true') {
+            self.$router.push({ name: 'login' })
+            alert('register success')
+            location.reload()
+            return
+          }
+          alert('u are loser')
+        })
     }
   }
 }
-
 </script>
-<style>
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .5);
-  display: table;
-  transition: opacity .3s ease;
-}
 
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-container {
-  width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  transition: all .3s ease;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
-}
-
-.modal-body {
-  margin: 20px 0;
-  text-align: left;
-}
-
-.modal-default-button {
-  float: right;
-}
-
-/*
-* The following styles are auto-applied to elements with
-* transition="modal" when their visibility is toggled
-* by Vue.js.
-*
-* You can easily play with the modal transition by editing
-* these styles.
-*/
-
-.modal-enter {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
+<style scoped>
+  .login {
+    margin: 0 auto;
+  }
+  .register {
+    display: none;
+  }
 </style>

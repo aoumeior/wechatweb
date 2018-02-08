@@ -17,8 +17,7 @@
 <script>
 import Vue from 'vue'
 import Req from 'axios'
-Vue.use(Req)
-
+Vue.prototype.$http = Req
 export default {
   name: 'UploadPic',
   data: function () {

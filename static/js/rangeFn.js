@@ -9,7 +9,7 @@ function getCursortPosition(textDom) {
         cursorPos = selectRange.text.length;
     } else if (textDom.selectionStart || textDom.selectionStart == '0') {
         // Firefox support
-        cursorPos = textDom.selectionStart;
+        cursorPos = textDom.selectionStartgetSelection;
     }
     return cursorPos;
 }
