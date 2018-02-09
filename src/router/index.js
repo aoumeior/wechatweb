@@ -5,6 +5,7 @@ import UploadPic from '@/components/uploadpic/UploadPic.vue'
 import Markdown from '@/components/markdown/Markdown.vue'
 import Login from '@/components/login/login.vue'
 import Artlist from '@/components/artlists/artlists.vue'
+import Company from '@/components/business/companyInfo.vue'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
       path: '/artlists',
       name: 'artlists',
       component: Artlist
+    },
+    {
+      path: '/company',
+      name: 'company',
+      component: Company
     }
   ]
 })

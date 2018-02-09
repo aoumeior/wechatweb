@@ -3,14 +3,22 @@
         <div class="editorContainer">
             <!-- submit -->
             <div class="sub">
-                <button class="am-btn am-btn-success">提交</button>
+                <form class="am-form am-form-horizontal">
+                  <div class="am-form-group am-form-success am-form-icon am-form-feedback">
+                    <div class="am-u-sm-10">
+                      <input type="email" id="doc-ipt-3-a" class="am-form-field" placeholder="输入你的文章标题">
+                      <span class="am-icon-warning"></span>
+                    </div>
+                    <button for="doc-ipt-3-a" class="am-u-sm-2 am-btn am-btn-default">提交</button>                    
+                  </div>
+                </form>
             </div>
             <!-- markdown -->
             <markdown
             :mdValuesP="mdValue"
             :fullPageStatusP="false"
             :editStatusP="true"
-            :previewStatusP="true"
+            :previewStatusP="false"
             :navStatusP="true"
             :icoStatusP="true"
             @childevent="childEventHandler"
@@ -59,14 +67,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .show{
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
+
     .indexContainer {
         width: 100%;
-        height: 100%;
+        margin-bottom: 20px;
         display: flex;
         text-align: left;
         justify-content: center;
@@ -114,7 +118,6 @@ export default {
         top: 0;
         height: 100%;
         width: 100%;
-        height: 100vh;
         width: 100vw;
         background: rgba(0,0,0,0.5);
         // z-index: 100;
@@ -181,13 +184,9 @@ export default {
     .editorContainer {
         width: 90%;
         height: 90%;
-
-        // border: 1px solid #ddd;
     }
 
     .sub {
-        width: 70px;
-        height: 30px;
         display: block;
         margin: 15px 0;
     }

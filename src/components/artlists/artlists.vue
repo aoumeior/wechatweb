@@ -1,68 +1,35 @@
 <template>
-	<div data-am-widget="list_news" class="am-list-news am-list-news-default" >
-		<!--列表标题-->
-		<div class="am-list-news-hd am-cf">
-			<!--带更多链接-->
-			<a href="##" class="">
-			<h2>栏目标题</h2>
-			<span class="am-list-news-more am-fr">更多 &raquo;</span>
-			</a>
-		</div>
-
-		<div class="am-list-news-bd">
-			<ul class="am-list">
-				<li v-for="item in list" class="am-g et-list-item-dated ">
-					<div class="et-list-item-hd ">
-						<a href="##">{{item.title}}</a>
-						<span style="font-size: 1.3rem; color: grey;">{{item.date}}</span>
+	<div>
+		<div class="am-g am-margin-bottom" v-for="item in list">
+			<div class="am-u-sm-2">
+				1
+			</div>
+			<div class="am-u-sm-8">
+				<div class="am-inline-block am-u-sm-1" style="vertical-align: top;">
+					<div class="tag">
+	    			<div>291</div> 
+	    			<div>Apr</div>
 					</div>
-
-					<div class="et-list-date">
-						<button v-if="edit" class="am-btn am-btn-primary am-btn-xs">编辑</button>
-						<button v-if="remove" class="am-btn am-btn-primary am-btn-xs">删除</button>
+				</div>
+				<div class="am-u-sm-3">
+				<img src="http://img.hackhome.com/img2014/201410/2014102460934829.png" alt="">
+				</div>
+				<div class="am-u-sm-8">
+					<header>分享下2015年的网页布局有哪些新的创意</header>
+					<div class="info am-text-xs">
+						27天前* 围观热度*经验之谈
 					</div>
-				</li>
-			</ul>
+					<p class="am-text-sm">
+	每年都有一些新的网页布局创业产生，而使一些老的布局方案被淘汰。毫无疑问，2015年的网页布局要响应各种终端，这种趋势早在2010年就在国外开始蔓延，我们可以。。。。
+					</p>
+					<div class="tags"></div>
+				</div>
+			</div>
+			<div class="am-u-sm-2" style="background-color: grey;">
+				
+			</div>
 		</div>
-		<ul data-am-widget="pagination" class="am-pagination am-pagination-default">
-
-		<li class="am-pagination-first ">
-			<a href="#" class="">第一页</a>
-		</li>
-
-		<li class="am-pagination-prev ">
-			<a href="#" class="">上一页</a>
-		</li>
-
-
-		<li class="">
-		<a href="#" class="">1</a>
-		</li>
-		<li class="am-active">
-		<a href="#" class="am-active">2</a>
-		</li>
-		<li class="">
-		<a href="#" class="">3</a>
-		</li>
-		<li class="">
-		<a href="#" class="">4</a>
-		</li>
-		<li class="">
-		<a href="#" class="">5</a>
-		</li>
-
-
-		<li class="am-pagination-next ">
-		<a href="#" class="">下一页</a>
-		</li>
-
-		<li class="am-pagination-last ">
-		<a href="#" class="">最末页</a>
-		</li>
-		</ul>
-
 	</div>
-
 </template>
 
 <script>
@@ -88,29 +55,20 @@ export default {
 			default: function () {
 				return [
 					{
-						"title": "晒照片，换北欧梦幻极光之旅！",
-						"date": "2013-11-18",
+						"title": "分享下2015年的网页布局有哪些新的创意",
+						"date": "27天前* 围观热度*经验之谈",
+						'profile': '每年都有一些新的网页布局创业产生，而使一些老的布局方案被淘汰。毫无疑问，2015年的网页布局要响应各种终端，这种趋势早在2010年就在国外开始蔓延，我们可以。。。。'						
 					},
 					{
-						"title": "晒照片，换北欧梦幻极光之旅！",
-						"date": "2013-11-18",
+						"title": "分享下2015年的网页布局有哪些新的创意",
+						"date": "27天前* 围观热度*经验之谈",
+						'profile': '每年都有一些新的网页布局创业产生，而使一些老的布局方案被淘汰。毫无疑问，2015年的网页布局要响应各种终端，这种趋势早在2010年就在国外开始蔓延，我们可以。。。。'						
 					},
 					{
-						"title": "晒照片，换北欧梦幻极光之旅！",
-						"date": "2013-11-18",
-					},
-					{
-						"title": "晒照片，换北欧梦幻极光之旅！",
-						"date": "2013-11-18",
-					},
-					{
-						"title": "晒照片，换北欧梦幻极光之旅！",
-						"date": "2013-11-18",
-					},
-					{
-						"title": "晒照片，换北欧梦幻极光之旅！",
-						"date": "2013-11-18",
-					},
+						"title": "分享下2015年的网页布局有哪些新的创意",
+						"date": "27天前* 围观热度*经验之谈",
+						'profile': '每年都有一些新的网页布局创业产生，而使一些老的布局方案被淘汰。毫无疑问，2015年的网页布局要响应各种终端，这种趋势早在2010年就在国外开始蔓延，我们可以。。。。'						
+					},					
 				]
 			}
 		}
@@ -125,26 +83,33 @@ export default {
 </script>
 
 <style>
-.et-list-item-hd {
-	position: relative;
-	margin-bottom: -1px;
-	background-color: #fff;
-	border: 1px solid #dedede;
+.tag{
+    box-sizing: border-box;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border: 5px solid #09F;
+    line-height: 20px;
+    text-align: center;
+    /*border-radius: 30px;*/
+    background-color: #fff;
+}
+.tag:before,.tag:after{
+    content:"";
+    display:block;
+    border-width:10px;
+    position:absolute; bottom:-22px;
+    left: 17px;
+    border-style:solid dashed dashed;
+    border-color:#09F transparent transparent;
+    font-size:0;
+    line-height:0;
+}
+.tag:after{
+    bottom:-17px;
+    border-color:#FFF transparent transparent;
 }
 
-.et-list-item-hd > a {
-	display: inline-block;
-	margin-left: 5px;
-    padding: 1rem 0;
-}
-
-.et-list-date {
-    position: absolute;
-    right: 5px;
-    font-size: 1.3rem;
-    top: 0;
-    padding: 1rem 0;
-    overflow: hidden;
-}
+ img{ width: 100%; height: auto;max-width: 100%; display: inline-block; }  
 
 </style>

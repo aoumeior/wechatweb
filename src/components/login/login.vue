@@ -57,8 +57,15 @@
       <div class="am-u-md-8 am-u-sm-centered">
         <form class="am-form">
           <fieldset class="am-form-set">
-            <input type="text" placeholder="取个名字" v-model="login.username">
-            <input type="password" placeholder="设个密码" v-model="login.password">
+            <div class="am-input-group">
+              <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
+              <input type="text" class="am-form-field" placeholder="Username" v-model="login.username">
+            </div>
+
+            <div class="am-input-group am-margin-top">
+              <span class="am-input-group-label"><i class="am-icon-lock am-icon-fw"></i></span>
+              <input type="password" class="am-form-field" placeholder="Password" v-model="login.password">
+            </div>
           </fieldset>
           <button type="submit" class="am-btn am-btn-primary am-btn-block" v-on:click="submitreqister">注册个账号</button>
         </form>

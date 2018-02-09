@@ -1,8 +1,11 @@
 <template>
   <div>
     <top></top>
-    <div id="app" class="tpl-content" :class="leftsiderswitch">
-      <router-view></router-view>
+    <div>
+      <!-- <leftsidebar></leftsidebar> -->
+      <div id="app" class="tpl-content active">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -29,7 +32,6 @@ export default {
     top: header
   },
   props: {
-    leftsiderswitch: ''
   },
   created () {
     // 用于获取图片数据
