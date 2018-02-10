@@ -24,25 +24,30 @@
 
 			    <div class="am-form-group">
 			      <label for="doc-ipt-con-1">公司名</label>
-			      <input type="text" class="" id="doc-ipt-con-1" placeholder="输入公司名" value="item.company_name">
+			      <input type="text" class="" id="doc-ipt-con-1" placeholder="输入公司名" :value="list.company_name">
 			    </div>					
 			    
 			    <div class="am-form-group">
 			      <label for="doc-ipt-email-1">邮件</label>
-			      <input type="email" class="" id="doc-ipt-email-1" placeholder="输入电子邮件">
+			      <input type="email" class="" id="doc-ipt-email-1" placeholder="输入电子邮件" :value="list.email">
 			    </div>
 
 			    <div class="am-form-group">
 			      <label for="doc-ipt-tell-1">电话</label>
-			      <input type="text" class="" id="doc-ipt-tell-1" placeholder="输入电话号码">
+			      <input type="text" class="" id="doc-ipt-tell-1" placeholder="输入电话号码" :value="list.fax">
+			    </div>
+
+			    <div class="am-form-group">
+			      <label for="doc-ipt-tell-1">地址</label>
+			      <input type="text" class="" id="doc-ipt-tell-1" placeholder="输入地址" :value="list.addr">
 			    </div>
 
 			    <div class="am-form-group">
 			      <label for="doc-ta-1">公司介绍</label>
-			      <textarea class="" rows="5" id="doc-ta-1"></textarea>
+			      <textarea class="" rows="5" id="doc-ta-1" :value="list.fax"></textarea>
 			    </div>
 
-			    <p><button type="submit" class="am-btn am-btn-default">提交</button></p>
+			    <p><button type="submit" class="am-btn am-btn-default" v-on:click="companyfix">提交</button></p>
 			  </fieldset>
 			</form>
 	 	</div>
@@ -64,9 +69,11 @@ export default {
 	watch: {
 		checkedSelectName: function (val) {
 				console.log(1)
-				// for( item in this.info.data){
-					// console.log(item)
-				// }
+				 for(let item=0; item < this.info.data.length; item++){
+				 		if(this.checkedSelectName == this.info.data[item].id){
+				 			this.list = this.info.data[item]
+				 		}
+				 }
 		}
 	},
 	created() {
@@ -75,6 +82,10 @@ export default {
 		Req.get(url).then((res) => {
 			self.info = res.data
 		})
+	},
+	methods: {
+		companyfix: function () {
+		}
 	}
 }
 </script>
