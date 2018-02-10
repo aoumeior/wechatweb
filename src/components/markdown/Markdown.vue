@@ -50,7 +50,6 @@ export default {
       // console.log(this.$root === this)
       // console.log(mes.data)
       self.mdValue = mes.data
-      console.log(self.mdValue)
     })
   },
   components: {

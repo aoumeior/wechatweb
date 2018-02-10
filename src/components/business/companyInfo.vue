@@ -14,20 +14,17 @@
 			  <fieldset>
 			    <legend>公司修改</legend>
 
-					
 			    <div class="am-form-group">
 			      <label for="doc-select-1">选择你的公司</label>
-			      <select id="doc-select-1">
-			        <option value="option1">百度</option>
-			        <option value="option2">腾讯</option>
-			        <option value="option3">阿里巴巴</option>
+			      <select id="doc-select-1" v-model="checkedSelectName">
+			        <option v-for="item in info.data" :value="item.id">{{item.company_name}}</option>
 			      </select>
 			      <span class="am-form-caret"></span>
 			    </div>
 
 			    <div class="am-form-group">
 			      <label for="doc-ipt-con-1">公司名</label>
-			      <input type="text" class="" id="doc-ipt-con-1" placeholder="输入公司名">
+			      <input type="text" class="" id="doc-ipt-con-1" placeholder="输入公司名" value="item.company_name">
 			    </div>					
 			    
 			    <div class="am-form-group">
@@ -53,9 +50,33 @@
 	</div>
 </template>
 <script>
-	export default {
+import Vue from 'vue'
+import Req from 'axios'
 
+export default {
+	data : function () {
+		return {
+			info: {},
+			checkedSelectName: '',
+			list: {}
+		}
+	},
+	watch: {
+		checkedSelectName: function (val) {
+				console.log(1)
+				// for( item in this.info.data){
+					// console.log(item)
+				// }
+		}
+	},
+	created() {
+		var self = this
+		let url = 'ytcc/wepro/view/data?viewid=wepro_company'
+		Req.get(url).then((res) => {
+			self.info = res.data
+		})
 	}
+}
 </script>
 <style>
 	
