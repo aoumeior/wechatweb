@@ -34,6 +34,12 @@ export default {
   props: {
   },
   created () {
+    // 初始化ivew全局通知属性
+    this.$Notice.config({
+      top: 100,
+      duration: 3
+    });
+
     // 用于获取图片数据
     let LocalAPI = 'static/api/displaypic.json'
     Req.get(LocalAPI)
@@ -67,6 +73,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 </style>

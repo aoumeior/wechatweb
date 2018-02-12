@@ -10,11 +10,11 @@
     <ul class="am-nav am-nav-pills am-topbar-nav">
       <li class="am-active"><a href="#">首页</a></li>
       <li>
-        <router-link tag="a" to="/company">
+        <router-link tag="a" to="/company/changeinfo">
         项目
         </router-link>
         <a href="#"></a></li>
-      <li class="am-dropdown" v-on:click="comlist=!comlist">
+      <li class="am-dropdown" @click="comlist =!comlist">
         <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
           function <span class="am-icon-caret-down"></span>
         </a>

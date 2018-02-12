@@ -1,26 +1,23 @@
 <template>
 	<div>
 		<div class="am-g am-margin-bottom" v-for="item in list">
-			<div class="am-u-sm-2">
-				1
-			</div>
-			<div class="am-u-sm-8">
-				<div class="am-inline-block am-u-sm-1" style="vertical-align: top;">
+			<div class="am-u-sm-8 am-u-sm-centered am-nbfc" style="border-bottom: 1px solid grey">
+				<div class="am-u-sm-1">
 					<div class="tag">
-	    			<div>291</div> 
-	    			<div>Apr</div>
+	    			<div>{{day(item.occur_time)}}</div> 
+	    			<div>{{ months(item.occur_time)}}</div>
 					</div>
 				</div>
 				<div class="am-u-sm-3">
 				<img src="http://img.hackhome.com/img2014/201410/2014102460934829.png" alt="">
 				</div>
 				<div class="am-u-sm-8">
-					<header>分享下2015年的网页布局有哪些新的创意</header>
+					<header>{{item.title}}</header>
 					<div class="info am-text-xs">
-						27天前* 围观热度*经验之谈
+					 {{ fromNow(item.occur_time)}}* 围观热度*经验之谈
 					</div>
 					<p class="am-text-sm">
-	每年都有一些新的网页布局创业产生，而使一些老的布局方案被淘汰。毫无疑问，2015年的网页布局要响应各种终端，这种趋势早在2010年就在国外开始蔓延，我们可以。。。。
+						{{item.content}}
 					</p>
 					<div class="tags"></div>
 				</div>
@@ -35,7 +32,7 @@
 <script>
 import Vue from 'vue'
 import Req from 'axios'
-
+import moment from 'moment'
 export default {
 	props: {
 		edit: {
@@ -53,31 +50,33 @@ export default {
 		list: {
 			type: Array,
 			default: function () {
-				return [
-					{
-						"title": "分享下2015年的网页布局有哪些新的创意",
-						"date": "27天前* 围观热度*经验之谈",
-						'profile': '每年都有一些新的网页布局创业产生，而使一些老的布局方案被淘汰。毫无疑问，2015年的网页布局要响应各种终端，这种趋势早在2010年就在国外开始蔓延，我们可以。。。。'						
-					},
-					{
-						"title": "分享下2015年的网页布局有哪些新的创意",
-						"date": "27天前* 围观热度*经验之谈",
-						'profile': '每年都有一些新的网页布局创业产生，而使一些老的布局方案被淘汰。毫无疑问，2015年的网页布局要响应各种终端，这种趋势早在2010年就在国外开始蔓延，我们可以。。。。'						
-					},
-					{
-						"title": "分享下2015年的网页布局有哪些新的创意",
-						"date": "27天前* 围观热度*经验之谈",
-						'profile': '每年都有一些新的网页布局创业产生，而使一些老的布局方案被淘汰。毫无疑问，2015年的网页布局要响应各种终端，这种趋势早在2010年就在国外开始蔓延，我们可以。。。。'						
-					},					
-				]
+				return  [
+		        {
+		            "id": "1e5aac2a649e4fbba9e1c4f3ce660b92",
+		            "title": "创意涂鸦手绘文化墙，为南昌增添光彩",
+		            "occur_time": 1518170339000,
+		            "content": "预定南昌创意涂鸦手绘:让人欲罢不能！\r\n南昌墙体彩绘这两天，6幅速写的故事，仿佛一块小小的石头，让原本繁忙、紧张的医院工作泛起了层层涟漪。“我们今天还在讨论呢！说缪爷爷是一位很阳光、很可爱的老人。”医院皮肤科住院医师李佳佳",
+		            "path": "http://www.unitools.site/ytcc/static/pic/ch1.jpg"
+		        }
+		    ]
 			}
 		}
 	},
-	create () {
-		let artListUrl = 'static/api/artlist.json'
-		Req.get(artListUrl).then((res) => {
-			this.list = res.data
+	created () {
+		let url = '/ytcc/wepro/view/data?viewid=wepro_article'
+		Req.get(url).then((res) => {
+			console.log(res.data)
+			this.list = res.data.data
 		})
+	},
+	methods: {
+		day(val) { return moment(val).week() },
+		months(val) { 
+			var en = moment().locale('en');
+			 return en.localeData().months(moment(val)).substring(0,3)
+
+		},
+		fromNow(val) { return moment(val).fromNow() }
 	}
 }
 </script>
