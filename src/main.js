@@ -12,6 +12,7 @@ Vue.config.productionTip = false
 /* 取消警告和日志 */
 Vue.config.silent = true
 /* eslint-disable no-new */
+
 new Vue({
   el: '#app',
   data: {

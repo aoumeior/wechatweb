@@ -6,12 +6,15 @@ import DisplayPic from '@/components/displaypic/DisplayPic'
 import UploadPic from '@/components/uploadpic/UploadPic.vue'
 import Markdown from '@/components/markdown/Markdown.vue'
 import Login from '@/components/login/login.vue'
-import Artlist from '@/components/artlists/artlists.vue'
 
+
+import Artlist from '@/components/artlists/artlists.vue'
+import ArtPage from '@/components/artlists/artpage.vue'
 
 import Company from '@/components/business/company.vue'
 import ChangeCompanyInfo from '@/components/business/companyInfo.vue'
-
+import CompanyShow from '@/components/business/companyshow.vue'
+import CompanyAdd from '@/components/business/companyadd.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -47,6 +50,11 @@ export default new Router({
       component: Markdown
     },
     {
+      path: '/artpage/:id',
+      name: 'artpage',
+      component: ArtPage
+    },
+    {
       path: '/artlists',
       name: 'artlists',
       component: Artlist
@@ -60,6 +68,16 @@ export default new Router({
           path: 'changeinfo',
           name: 'changeinfo',
           component: ChangeCompanyInfo
+        },
+        {
+          path: 'companyshow',
+          name: 'companyshow',
+          component: CompanyShow
+        },
+        {
+          path: 'companyadd',
+          name: 'companyadd',
+          component: CompanyAdd
         }
       ]
     }

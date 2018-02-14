@@ -91,10 +91,11 @@ export default {
 	},
 	methods: {
 		companyfix: function () {
+			var that = this 
 			let url = 'ytcc/app/bus?busid=company.update'
 			Req.post(url, this.list).then((res) => {
-				this.fixSuccess(true)
-				this.getCompanyinfoList()
+				that.fixSuccess(true)
+				that.getCompanyinfoList()
 			})
 		},
 		getCompanyinfoList: function () {

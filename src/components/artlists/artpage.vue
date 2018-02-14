@@ -1,26 +1,14 @@
 <template>
     <div class="indexContainer">
         <div class="editorContainer">
-            <!-- submit -->
-            <div class="sub">
-                <form class="am-form am-form-horizontal">
-                  <div class="am-form-group am-form-success am-form-icon am-form-feedback  am-g-collapse">
-                    <div class="am-u-sm-10">
-                      <input type="email" id="doc-ipt-3-a" class="am-form-field" placeholder="输入你的文章标题">
-                      <span class="am-icon-warning"></span>
-                    </div>
-                    <button for="doc-ipt-3-a" class="am-u-sm-2 am-btn am-btn-default">提交</button>                    
-                  </div>
-                </form>
-            </div>
             <!-- markdown -->
             <markdown
             :mdValuesP="mdValue"
             :fullPageStatusP="false"
-            :editStatusP="true"
-            :previewStatusP="false"
-            :navStatusP="true"
-            :icoStatusP="true"
+            :editStatusP="false"
+            :previewStatusP="true"
+            :navStatusP="false"
+            :icoStatusP="false"
             @childevent="childEventHandler"
             ></markdown>
         </div>
@@ -44,7 +32,7 @@ export default {
     let LocalAPI = '../../static/api/mk.json'
     var that = this
     Req.get(LocalAPI).then((mes) => {
-      // this.$root
+      console.log(this.$route.params.id)
       // 获取所谓的根实例，根据我的分析，我这种情况无论怎么写最后都是要获取到根事例
       // 在组件内写this.$root 获取实例，下个判断就会false
       // console.log(this.$root === this)
@@ -57,7 +45,7 @@ export default {
   methods: {
     childEventHandler: function (res) {
       // res会传回一个data,包含属性mdValue和htmlValue，具体含义请自行翻译
-      // this.msg = res
+      this.msg = res
     }
   }
 }

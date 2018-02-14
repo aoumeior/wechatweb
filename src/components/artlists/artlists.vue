@@ -1,18 +1,22 @@
 <template>
 	<div>
-		<div class="am-g am-margin-bottom" v-for="item in list">
-			<div class="am-u-sm-8 am-u-sm-centered am-nbfc" style="border-bottom: 1px solid grey">
-				<div class="am-u-sm-1">
+		<div class="am-g am-margin-bottom" v-for="item in list.data">
+			<div class="am-u-sm-8 am-u-sm-centered am-nbfc am-padding-bottom" style="border-bottom: 1px solid grey">
+				<div class="am-u-sm-2">
 					<div class="tag">
-	    			<div>{{day(item.occur_time)}}</div> 
+	    			<div>{{ day(item.occur_time) }}</div> 
 	    			<div>{{ months(item.occur_time)}}</div>
 					</div>
 				</div>
 				<div class="am-u-sm-3">
 				<img src="http://img.hackhome.com/img2014/201410/2014102460934829.png" alt="">
 				</div>
-				<div class="am-u-sm-8">
-					<header>{{item.title}}</header>
+				<div class="am-u-sm-7">
+					<header>
+						<router-link tag="a" :to="'/artpage/'+ item.id" class="am-text-truncate">
+							{{item.title}}
+						</router-link>
+					</header>
 					<div class="info am-text-xs">
 					 {{ fromNow(item.occur_time)}}* 围观热度*经验之谈
 					</div>
@@ -23,9 +27,9 @@
 				</div>
 			</div>
 			<div class="am-u-sm-2" style="background-color: grey;">
-				
 			</div>
 		</div>
+		<Page :total="list.total" show-sizer></Page>
 	</div>
 </template>
 
@@ -66,7 +70,7 @@ export default {
 		let url = '/ytcc/wepro/view/data?viewid=wepro_article'
 		Req.get(url).then((res) => {
 			console.log(res.data)
-			this.list = res.data.data
+			this.list = res.data
 		})
 	},
 	methods: {
@@ -87,6 +91,7 @@ export default {
     position: relative;
     width: 60px;
     height: 60px;
+    margin: 0 auto;
     border: 5px solid #09F;
     line-height: 20px;
     text-align: center;
