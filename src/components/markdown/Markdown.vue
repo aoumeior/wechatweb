@@ -6,10 +6,10 @@
                 <form class="am-form am-form-horizontal">
                   <div class="am-form-group am-form-success am-form-icon am-form-feedback  am-g-collapse">
                     <div class="am-u-sm-10">
-                      <input type="email" id="doc-ipt-3-a" class="am-form-field" placeholder="输入你的文章标题">
+                      <input type="text" id="doc-ipt-3-a" class="am-form-field" v-model="title" placeholder="输入你的文章标题">
                       <span class="am-icon-warning"></span>
                     </div>
-                    <button for="doc-ipt-3-a" class="am-u-sm-2 am-btn am-btn-default">提交</button>                    
+                    <button for="doc-ipt-3-a" class="am-u-sm-2 am-btn am-btn-default" @click="submitarticle">提交</button>                    
                   </div>
                 </form>
             </div>
@@ -37,7 +37,8 @@ export default {
   name: 'index',
   data: function () {
     return {
-      mdValue: '## Vue-markdownEditor'
+      title:'',
+      mdValue: ''
     }
   },
   created () {
@@ -58,6 +59,18 @@ export default {
     childEventHandler: function (res) {
       // res会传回一个data,包含属性mdValue和htmlValue，具体含义请自行翻译
       // this.msg = res
+    },
+    submitarticle: function() {
+      let url = "/ytcc/app/bus?busid=article.add"
+      let redata = {
+        "title": this.title,
+        "content":  this.mdValue,
+        "picid": "3",
+        "company_id": "dff"
+      }
+      Req.post(url,redata).then(function (msg){
+        console.log(msg)
+      })
     }
   }
 }

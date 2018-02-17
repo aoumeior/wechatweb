@@ -274,6 +274,9 @@ export default {
       let maxPreviewScrollHeight = document.querySelector('.previewContainer').scrollHeight - document.querySelector('.previewContainer').clientHeight
       this.maxEditScrollHeight = maxEditScrollHeight
       this.maxPreviewScrollHeight = maxPreviewScrollHeight
+    },
+    mdValuesP: function(newvalue, oldvalue) {
+      this.input = this.mdValuesP
     }
   }
 }
@@ -369,7 +372,7 @@ color: #fff;
 padding: 10px;
 .mdEditor {
 height: 800px;
-width: 90%;
+width: 100%;
 background: transparent;
 outline: none;
 color: #fff;

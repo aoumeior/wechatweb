@@ -25,18 +25,24 @@ export default {
   name: 'index',
   data: function () {
     return {
-      mdValue: '## Vue-markdownEditor'
+        mdValue: ''
     }
   },
   created () {
-    let LocalAPI = '../../static/api/mk.json'
+    let LocalAPI = 'ytcc/wepro/view/data?viewid=wepro_article&id=' + this.$route.params.id
     var that = this
     Req.get(LocalAPI).then((mes) => {
-      console.log(this.$route.params.id)
+      
+      for(let item in mes.data.data){
+        if(that.$route.params.id == mes.data.data[item].id){
+            that.mdValue = '## '+ mes.data.data[item].title + '\n' + mes.data.data[item].content
+            return;
+        }
+      }
+      alert("artlist load fail")
       // 获取所谓的根实例，根据我的分析，我这种情况无论怎么写最后都是要获取到根事例
       // 在组件内写this.$root 获取实例，下个判断就会false
       // console.log(this.$root === this)
-      that.mdValue = mes.data
     })
   },
   components: {

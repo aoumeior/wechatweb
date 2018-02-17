@@ -9,7 +9,7 @@
         </div>
       <!-- 图片展示 -->
       <div>
-        <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{  }">
+        <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered">
           <li v-for="item in pic.data" :key="item.id">
             <div class="am-gallery-item">
               <img :src="item.path" alt="远方 有一个地方 那里种有我们的梦想" />

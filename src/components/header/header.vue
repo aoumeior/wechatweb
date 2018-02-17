@@ -4,7 +4,7 @@
       <a href="#">Foress</a>
     </h1>
 
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" @click=""><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
     <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
       <ul class="am-nav am-nav-pills am-topbar-nav">
@@ -41,7 +41,6 @@
                 文章列表
                 </router-link>
             </li>
-            <!-- <li class="am-active"><a href="#">2. 去火星</a></li> -->
           </ul>
         </li>
       </ul>
