@@ -12,7 +12,7 @@
         <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered">
           <li v-for="item in pic.data" :key="item.id">
             <div class="am-gallery-item">
-              <img :src="item.path" alt="远方 有一个地方 那里种有我们的梦想" />
+              <img @click.stop="showmodal(item.path)" :src="item.path" alt="远方 有一个地方 那里种有我们的梦想" />
               <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
               <div class="am-gallery-desc">{{item.occur_time}}</div>
             </div>
@@ -36,6 +36,7 @@ export default {
       type: Object,
       default: function () {
         return {
+          src:'',
           total: 2,
           data: [{
             id: '02cc8126d6a840829ce0bbd3d5c11607',
@@ -93,6 +94,30 @@ export default {
           }]
         }
       }
+    }
+  },
+  methods: {
+    showmodal(e) {
+      var that = this
+      that.src  = e
+      that.$Modal.info({
+        title: "",
+        width: '90%',
+        closable: true,
+        render: (h) => {
+          return h('div',[
+              h('img', {
+                  domProps: {
+                    align: 'center',
+                    src: that.src
+                  },
+                  style: {
+                    margin: "0 auto"
+                  }
+              })
+          ]);
+        }
+      })
     }
   }
 }

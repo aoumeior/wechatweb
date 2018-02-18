@@ -42,15 +42,29 @@ export default {
     }
   },
   created () {
-    let LocalAPI = '../../static/api/mk.json'
+    console.log()
     var that = this
-    Req.get(LocalAPI).then((mes) => {
-      // this.$root
-      // 获取所谓的根实例，根据我的分析，我这种情况无论怎么写最后都是要获取到根事例
-      // 在组件内写this.$root 获取实例，下个判断就会false
-      // console.log(this.$root === this)
-      that.mdValue = mes.data
-    })
+    if(that.$route.params.id === undefined) {
+        let LocalAPI = '../../static/api/mk.json'
+
+        Req.get(LocalAPI).then((mes) => {
+          // this.$root
+          // 获取所谓的根实例，根据我的分析，我这种情况无论怎么写最后都是要获取到根事例
+          // 在组件内写this.$root 获取实例，下个判断就会false
+          // console.log(this.$root === this)
+          that.mdValue = mes.data
+        })
+    }else {
+       let url = '/ytcc/wepro/view/data?viewid=wepro_article&id=' + that.$route.params.id 
+        Req.get(url).then((mes) => {
+          // this.$root
+          // 获取所谓的根实例，根据我的分析，我这种情况无论怎么写最后都是要获取到根事例
+          // 在组件内写this.$root 获取实例，下个判断就会false
+          // console.log(this.$root === this)
+          that.mdValue = mes.data.data[0].content
+          that.title =  mes.data.data[0].title
+        })
+    }
   },
   components: {
     markdown

@@ -1,7 +1,7 @@
 <template>
 		<div class="am-g" style="margin-top: 50px">
-	 		<div class="am-u-md-8 am-u-sm-centered">	 	
-    		<i-table border :columns="columns2" :data="data4"></i-table>
+	 		<div class="am-u-md-10 am-u-sm-centered">	 	
+    		<i-table border :columns="columns2" :data="data4" height=400></i-table>
  		 </div>
 		</div>
 </template>
@@ -20,17 +20,17 @@ export default {
           {
               title: '电话',
               key: 'tel',
-              width: 130
+              width: 200
           },
           {
               title: '邮件',
               key: 'email',
-              width: 130
+              width: 200
           },
           {
               title: '传真',
               key: 'fax',
-              width: 130
+              width: 200
           },
           {
               title: '地址',
@@ -48,10 +48,10 @@ export default {
   },
   methods: {
 		getCompanyinfoList: function () {
-			var self = this
+			var that = this
 			let url = 'ytcc/wepro/view/data?viewid=wepro_company'
 			Req.get(url).then((res) => {
-				self.data4 = res.data.data
+				that.data4 = res.data.data
 			})
 		}
   },

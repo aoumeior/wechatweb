@@ -68,7 +68,6 @@ export default {
 	created () {
 		let url = '/ytcc/wepro/view/data?viewid=wepro_article_left25'
 		Req.get(url).then((res) => {
-			console.log(res.data)
 			this.list = res.data
 		})
 	},

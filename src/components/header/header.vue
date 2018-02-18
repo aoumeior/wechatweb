@@ -41,6 +41,11 @@
                 文章列表
                 </router-link>
             </li>
+            <li>
+                <router-link tag="a" to="/artshow">
+                文章列表
+                </router-link>
+            </li>
           </ul>
         </li>
       </ul>
@@ -56,7 +61,7 @@
           <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm am-dropdown-toggle" data-am-dropdown-toggle @click.stop="otherlist=!otherlist">其他 <span class="am-icon-caret-down"></span></button>
           <ul class="am-dropdown-content" style="display: block;" v-if="otherlist">
             <li><a @click.stop="skiplogin">注册</a></li>
-            <li><a>随便看看</a></li>
+            <li><a @click.stop="logout">随便看看</a></li>
           </ul>
         </div>
       </div>
@@ -74,7 +79,9 @@ export default{
   data: function () {
     return {
       comlist: false,
-      otherlist: false
+      otherlist: false,
+
+      status: false
     }
   },
   methods: {
@@ -92,7 +99,15 @@ export default{
       })
     },
     skiplogin: function (e) {
-       this.$router.push({ name: 'login' })
+      let that = this
+      let url = '/ytcc/app/user/status'
+      Req.get(url).then(function (msg) {
+        if(msg.data.data)
+          alert("aleary login")
+        else
+        that.$router.push({ name: 'login' })
+      })
+    
     }
     // <div v-bind:id="rawId | formatId"></div>
     // 過濾器用于格式化，結合混合屬於高級抽象

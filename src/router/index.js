@@ -8,6 +8,7 @@ import Markdown from '@/components/markdown/Markdown.vue'
 import Login from '@/components/login/login.vue'
 
 
+import Artshow from '@/components/artlists/artshow.vue'
 import Artlist from '@/components/artlists/artlists.vue'
 import ArtPage from '@/components/artlists/artpage.vue'
 
@@ -30,7 +31,7 @@ export default new Router({
       redirect: to => {
         // 方法接收 目标路由 作为参数
         // return 重定向的 字符串路径/路径对象
-        console.log(to)
+        // console.log(to)
         return '/login'
       }
     },
@@ -43,6 +44,11 @@ export default new Router({
       path: '/uploadpic',
       name: 'uploadpic',
       component: UploadPic
+    },
+    {
+      path: '/markdown/:id',
+      name: 'markdown',
+      component: Markdown
     },
     {
       path: '/markdown',
@@ -58,6 +64,11 @@ export default new Router({
       path: '/artlists',
       name: 'artlists',
       component: Artlist
+    },
+    {
+      path: '/artshow',
+      name: 'artshow',
+      component: Artshow
     },
     {
       path: '/company',
